@@ -25,3 +25,6 @@ module.exports = app => {
     res.send(req.user);
   });
 };
+
+
+// redis we only write letters and numbers
