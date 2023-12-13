@@ -5,4 +5,4 @@ module.exports = {
   mongoURI:
     'mongodb+srv://salmanaziz:salman999@cluster0.gllatbf.mongodb.net/?retryWrites=true&w=majority',
   cookieKey: '123123123',
-};
+}; 
