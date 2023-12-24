@@ -29,7 +29,7 @@ mongoose.Query.prototype.exec = async function () {
   console.log('Im About to run Query')
   const key = JSON.stringify(Object.assign({}, this.getQuery(), {
     collection: this.mongooseCollection.name
-  }))
+  })) // so we dont change the reference
 
   const cacheValue = await client.hget(this.hashKey, key)
 
@@ -44,7 +44,7 @@ mongoose.Query.prototype.exec = async function () {
 
   const result = await exec.apply(this, arguments) // same copy that we havent messed around
 
-  client.hset(this.hashKey, key, JSON.stringify(result), "EX", 10)
+  client.hset(this.hashKey, key, JSON.stringify(result), "EX", 10) // expiry date
 
   return result
 
